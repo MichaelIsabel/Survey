@@ -1,0 +1,123 @@
+<html>
+<head>
+    <title>Survey</title>
+    <style>
+        .survey-part {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="part1" class="survey-part">
+        <h1>What type of Questions would you like?</h1>
+        <button class ="btn" onclick ="submitResponse('Open Response')">Open Response</button>
+        <button class ="btn" onclick ="submitResponse('Yes No')">Yes No</button>
+        <button class ="btn" onclick ="submitResponse('Scaled')">Scaled</button>
+        <button class ="btn" onclick ="submitResponse('Check Box')">Check Box</button>
+        <h1></h1>
+        <button onclick="nextPart()">Next</button>
+    </div>
+
+    <div id="part2" class="survey-part">
+        <h1>Open Response Questions </h1>
+        
+        <input type="text" id="name" name="name" required><br><br>
+        <input type="text" id="name" name="name" required><br><br>
+        <input type="text" id="name" name="name" required><br><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <button onclick="nextPart()">Next</button>
+    </div>
+
+    <div id="part3" class="survey-part">
+        <h1>Yes No Questions </h1>
+
+        <button class="btn"onclick="submitResponse('Yes')">Yes</button>
+        <button class="btn"onclick="submitResponse('No')">No</button>
+        <h1> </h1>
+        <button class="btn"onclick="submitResponse('Yes')">Yes</button>
+        <button class="btn"onclick="submitResponse('No')">No</button>
+        <h1> </h1>
+        <button class="btn"onclick="submitResponse('Yes')">Yes</button>
+        <button class="btn"onclick="submitResponse('No')">No</button>
+        <h1> </h1>
+        <button class="btn"onclick="submitResponse('Yes')">Yes</button>
+        <button class="btn"onclick="submitResponse('No')">No</button>
+        <h1> </h1>
+        <button onclick="nextPart()">Next</button>
+        
+        
+    </div>
+
+    <div id="part4" class="survey-part">
+        <h1>Scaled Questions </h1>
+       
+        <button class="btn"onclick="submitResponse('1')">1</button>
+        <button class="btn"onclick="submitResponse('2')">2</button>
+        <button class="btn"onclick="submitResponse('3')">3</button>
+        <button class="btn"onclick="submitResponse('4')">4</button>
+        <button class="btn"onclick="submitResponse('5')">5</button>
+        <h1></h1>
+
+        <button class="btn"onclick="submitResponse('1')">1</button>
+        <button class="btn"onclick="submitResponse('2')">2</button>
+        <button class="btn"onclick="submitResponse('3')">3</button>
+        <button class="btn"onclick="submitResponse('4')">4</button>
+        <button class="btn"onclick="submitResponse('5')">5</button>
+        <h1></h1>
+
+        <button class="btn"onclick="submitResponse('1')">1</button>
+        <button class="btn"onclick="submitResponse('2')">2</button>
+        <button class="btn"onclick="submitResponse('3')">3</button>
+        <button class="btn"onclick="submitResponse('4')">4</button>
+        <button class="btn"onclick="submitResponse('5')">5</button>
+        <h1></h1>
+
+        <button onclick="nextPart()">Next</button>
+    </div>
+
+    <div id="part5" class="survey-part">
+        <h1>CheckBox Questions </h1>
+        
+        <h1> </h1>
+        <label><input type="checkbox" name="question1" value="Option 1"> Option 1</label><br>
+        <label><input type="checkbox" name="question1" value="Option 2"> Option 2</label><br>
+        <label><input type="checkbox" name="question1" value="Option 3"> Option 3</label><br><br>
+
+        <label><input type="checkbox" name="question2" value="Option A"> Option A</label><br>
+        <label><input type="checkbox" name="question2" value="Option B"> Option B</label><br>
+        <label><input type="checkbox" name="question2" value="Option C"> Option C</label><br><br>
+
+        <button onclick="submitSurvey()">Submit</button>
+        <h1> </h1>
+        <button onclick="window.print()">Print</button>
+    </div>
+
+    <script>
+        var currentPart = 1;
+
+        function showPart(partNumber) {
+            var parts = document.querySelectorAll('.survey-part');
+            for (var i = 0; i < parts.length; i++) {
+                parts[i].style.display = 'none';
+            }
+            document.getElementById('part' + partNumber).style.display = 'block';
+        }
+
+        function nextPart() {
+            if (currentPart < 5) {
+                currentPart++;
+                showPart(currentPart);
+            }
+        }
+
+        function submitSurvey() {
+            // Here you can collect the survey data and perform necessary actions
+            alert('Survey submitted successfully!');
+        }
+
+        // Show the first part when the page loads
+        showPart(currentPart);
+    </script>
+</body>
+</html>
